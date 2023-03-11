@@ -1,25 +1,33 @@
-import Navigation from '../navigation/Navigation';
-import EmailDetails from '../emailDetails/EmailDetails';
+import Navigation from '../navigation/Navigation'
+import EmailDetails from '../emailDetails/EmailDetails'
 
-
-export default function EmailsOverview(props) {
-	return (
+export default function EmailsOverview (props) {
+  return (
 		<div>
 			<Navigation />
-	
+
 			<h1>{props.header}</h1>
-	
+
 			{
 				props.emails.map((email, index) => (
 					<EmailDetails
 						key={index}
 						subject={email.subject}
-						from={email.from}
-						to={email.to}
+						sender={email.sender}
+						recipient={email.recipient}
 						body={email.body}
-					></EmailDetails>
+					>
+            {
+              email.errMsg && (
+                <h4>
+                  Error Sending Email:
+                  <span className="errMsg"> {email.errMsg}</span>
+                </h4>
+              )
+            }
+          </EmailDetails>
 				))
 			}
 		</div>
-	);
+  )
 }

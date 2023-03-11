@@ -1,11 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-import './Navigation.css';
+import './Navigation.css'
 
-
-export default function Navigation() {
-
-	return (
+export default function Navigation () {
+  return (
 		<div className="navigation">
 			<nav>
 				<ul>
@@ -15,6 +13,6 @@ export default function Navigation() {
 				</ul>
 			</nav>
 			<hr />
-		</div>	
-	);
+		</div>
+  )
 }

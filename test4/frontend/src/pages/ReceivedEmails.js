@@ -1,30 +1,29 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react'
 
-import ReceivedOverview from '../receivedOverview/ReceivedOverview';
+import ReceivedOverview from '../receivedOverview/ReceivedOverview'
 
-import { getReceivedEmails } from '../services/receivedService';
+import { getReceivedEmails } from '../services/receivedService'
 
 export default class ReceivedEmails extends Component {
+  constructor () {
+    super()
 
-	constructor() {
-		super();
+    this.state = {
+      receivedEmails: []
+    }
+  }
 
-		this.state = {
-			receivedEmails: []
-		}
-	}
+  async componentWillMount () {
+    this.setState({
+      ...this.state,
+      receivedEmails: await getReceivedEmails()
+    })
+  }
 
-	async componentWillMount() {
-		this.setState({
-			...this.state,
-			receivedEmails: await getReceivedEmails()
-		});
-	}
-
-	render() {
-		return <ReceivedOverview
+  render () {
+    return <ReceivedOverview
 			header="Recevied Emails"
 			emails={this.state.receivedEmails}
-		></ReceivedOverview>;
-	}
+		></ReceivedOverview>
+  }
 }

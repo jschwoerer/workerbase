@@ -1,14 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import Home from './pages/Home';
-import EmailForm from './pages/EmailForm';
-import ReceivedEmails from './pages/ReceivedEmails';
-import SentEmails from './pages/SentEmails';
+import Home from './pages/Home'
+import EmailForm from './pages/EmailForm'
+import ReceivedEmails from './pages/ReceivedEmails'
+import SentEmails from './pages/SentEmails'
 
-import './App.css';
+import './App.css'
 
-function App() {
-	return (
+function App () {
+  return (
 		<div className="App">
 			<BrowserRouter>
 				<Routes>
@@ -19,7 +19,7 @@ function App() {
 				</Routes>
 			</BrowserRouter>
 		</div>
-	);
+  )
 }
 
-export default App;
+export default App
